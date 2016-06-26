@@ -31,7 +31,9 @@ import createTheme from "spectacle/lib/themes/default";
 // Import custom component
 import Interactive from "../assets/interactive";
 
-import Intro from './Intro/Intro';
+import Intro from './Slides/1.Intro';
+import WhyReact from './Slides/2.WhyReact';
+import Companies from './Slides/3.Companies';
 import CodeSlide from 'spectacle-code-slide';
 // Require CSS
 require("normalize.css");
@@ -48,7 +50,7 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "#ff4081"
+  primary: "#00DCFF"
 });
 
 export default class Presentation extends React.Component {
@@ -56,22 +58,16 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
-          <Slide transition={["zoom"]} bgColor="primary">
-            <Intro />
-          </Slide>
-          <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
-            </Heading>
-          </Slide>
+          {Intro}
+          {WhyReact}
+          {Companies}
           <CodeSlide
             transition={[]}
             lang="jsx"
             code={require("raw!../assets/deck.example")}
             ranges={[
-              { loc: [0, 50] }, { loc: [0, 1], title: "The Beginning"}, { loc: [2, 4], title: "Start"}, { loc: [4, 7], title: "Next"}]}/>
-          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+              { loc: [0, 0] }, { loc: [0, 1], title: "The Beginning"}, { loc: [2, 4], title: "Start"}, { loc: [4, 7], title: "Next"}]}/>
+          <Slide transition={["zoom", "fade"]} bgColor="primary">
             <CodePane
               lang="jsx"
               source={require("raw!../assets/deck.example")}
