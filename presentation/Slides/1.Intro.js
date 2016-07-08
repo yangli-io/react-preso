@@ -27,7 +27,4 @@ export default <Slide transition={["zoom"]} bgColor="primary">
     A ReactJS Presentation With ES 6/ES Next
   </Heading>
   <Heading size={4} caps textColor="black">Yang Li</Heading>
-  <Link href="https://github.com/FormidableLabs/spectacle">
-    <Text bold caps textColor="tertiary">View on Github</Text>
-  </Link>
 </Slide>;

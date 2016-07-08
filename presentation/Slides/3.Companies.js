@@ -25,7 +25,10 @@ import {
 const images = {
     netflix: require("../../assets/netflix.png"),
     yahoo: require("../../assets/yahoo.png"),
-    facebook: require("../../assets/facebook.jpg")
+    facebook: require("../../assets/facebook.jpg"),
+    airbnb: require("../../assets/airbnb.jpg"),
+    uber: require("../../assets/uber.jpg"),
+    reddit: require("../../assets/reddit.jpg")
 };
 
 export default <Slide transition={["slide"]} notes="You can even put notes on your slide. How awesome is that?">
@@ -45,13 +48,13 @@ export default <Slide transition={["slide"]} notes="You can even put notes on yo
     </Layout>
     <Layout>
         <Fill>
-            <Image width="100%" height="100px" src={images.netflix}/>
+            <Image width="100%" height="100px" src={images.airbnb}/>
         </Fill>
         <Fill>
-            <Image width="100%" height="100px" src={images.yahoo}/>
+            <Image width="100%" height="100px" src={images.uber}/>
         </Fill>
         <Fill>
-            <Image width="100%" height="100px" src={images.yahoo}/>
+            <Image width="100%" height="100px" src={images.reddit}/>
         </Fill>
     </Layout>
 </Slide>;

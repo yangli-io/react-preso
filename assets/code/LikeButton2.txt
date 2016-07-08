@@ -1,0 +1,35 @@
+import React, { Component, PropTypes } from 'react';
+
+export default class LikeButton extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      liked: false
+    }
+  }
+
+  static propTypes = {
+    value: PropTypes.number
+  };
+
+  static defaultProps = {
+    value: 0
+  };
+
+  handleClick() {
+    this.setState({liked: !this.state.liked});
+  }
+
+  render() {
+    const icon = this.state.liked ? 'fa-check' : 'fa-thumbs-up';
+
+    return (
+      <div className="like-button" onClick={this.handleClick.bind(this)}>
+        <i className={`fa ${icon}`} aria-hidden="true" />
+        <span>Like</span>
+        <span>{this.props.value + this.state.liked}</span>
+      </div>
+    );
+  }
+}

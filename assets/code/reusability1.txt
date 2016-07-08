@@ -1,0 +1,15 @@
+import React, { Component } from 'react';
+import LikeButton from './LikeButton/LikeButton';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <div><LikeButton /></div>
+        <div><LikeButton value={5} /></div>
+        <div>Hello please like my post <LikeButton value={20} /></div>
+        <div><LikeButton /></div>
+      </div>
+    );
+  }
+}

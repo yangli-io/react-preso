@@ -1,0 +1,50 @@
+import React from 'react';
+import TestUtils, { renderIntoDocument } from 'react-addons-test-utils';
+import { findDOMNode } from 'react-dom';
+import LikeButton from './LikeButton';
+
+describe('Counter', () => {
+  let component;
+
+  beforeEach(() => {
+    component = renderIntoDocument(<LikeButton value={5} />);
+  });
+
+  it('should render 5 likes', () => {
+    const renderedComponent = findDOMNode(component);
+    expect(renderedComponent.textContent).to.equal('Like5');
+  });
+
+  it('should render a thumb icon', () => {
+    const thumbs = TestUtils
+      .findRenderedDOMComponentWithClass(component, 'fa-thumbs-up');
+    expect(thumbs).to.not.be.null;
+  });
+
+  it('should render a tick icon after clicking', () => {
+    TestUtils.Simulate.click(findDOMNode(component));
+    const check = TestUtils
+      .findRenderedDOMComponentWithClass(component, 'fa-check');
+    expect(check).to.not.be.null;
+
+    TestUtils.Simulate.click(findDOMNode(component));
+    const thumbs = TestUtils
+      .findRenderedDOMComponentWithClass(component, 'fa-thumbs-up');
+    expect(thumbs).to.not.be.null;
+  });
+
+  it('should increase the number of likes after clicking', () => {
+    const renderedComponent = findDOMNode(component);
+    TestUtils.Simulate.click(renderedComponent);
+    expect(renderedComponent.textContent).to.equal('Like6');
+
+    //Revert back if clicked again
+    TestUtils.Simulate.click(renderedComponent);
+    expect(renderedComponent.textContent).to.equal('Like5');
+  });
+});
+
+
+
+
+

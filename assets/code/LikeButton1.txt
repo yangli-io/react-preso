@@ -1,0 +1,21 @@
+import React, { Component, PropTypes } from 'react';
+
+export default class LikeButton extends Component {
+  static propTypes = {
+    value: PropTypes.number
+  };
+
+  static defaultProps = {
+    value: 0
+  };
+
+  render() {
+    return (
+      <div className="like-button">
+        <i className="fa fa-thumbs-up" aria-hidden="true" />
+        <span>Like</span>
+        <span>{this.props.value}</span>
+      </div>
+    );
+  }
+}
